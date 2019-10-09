@@ -1,0 +1,10 @@
+.main-content {
+    height: calc(100vh - 70px - 44px);
+    margin: 70px 0 44px 0;
+    overflow: auto;
+    padding: 20px 0;
+}
+
+.main-content>div {
+    overflow: auto;
+}

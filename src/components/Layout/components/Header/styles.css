@@ -1,0 +1,51 @@
+.App-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    height: 70px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.App-header .nav-icon {
+    width: 40px;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.App-header .nav-icon:after,
+.App-header .nav-icon:before,
+.App-header .nav-icon div {
+    background-color: #fff;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 5px;
+    margin: 7px 0;
+    transition: all .2s ease-in-out;
+}
+
+.nav-icon.open:before {
+    transform: translateY(12px) rotate(135deg);
+}
+
+.nav-icon.open:after {
+    transform: translateY(-12px) rotate(-135deg);
+}
+
+.nav-icon.open div {
+    transform: scale(0);
+}
