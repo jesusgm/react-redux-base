@@ -4,13 +4,14 @@ import PropTypes from "prop-types";
 import "./styles.css";
 
 const propTypes = {
+  routes: PropTypes.array,
   isOpen: PropTypes.bool,
   toggleMenu: PropTypes.func
 };
 
 class Menu extends Component {
   render() {
-    const { isOpen, toggleMenu } = this.props;
+    const { routes, isOpen, toggleMenu } = this.props;
     return (
       <Fragment>
         <div
@@ -19,35 +20,18 @@ class Menu extends Component {
         />
         <div className={`menu ${isOpen ? "opened" : ""}`}>
           <div className="menu-container menu-list">
-            <NavLink
-              to="/"
-              activeClassName="is-active"
-              exact
-              onClick={() => toggleMenu()}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/section"
-              activeClassName="is-active"
-              onClick={() => toggleMenu()}
-            >
-              Section
-            </NavLink>
-            <NavLink
-              to="/counter"
-              activeClassName="is-active"
-              onClick={() => toggleMenu()}
-            >
-              Redux counter
-            </NavLink>
-            <NavLink
-              to="/about"
-              activeClassName="is-active"
-              onClick={() => toggleMenu()}
-            >
-              About
-            </NavLink>
+            {routes.length > 0
+              ? routes.map(route => (
+                  <NavLink
+                    to={route.path}
+                    activeClassName="is-active"
+                    exact
+                    onClick={() => toggleMenu()}
+                  >
+                    {route.name}
+                  </NavLink>
+                ))
+              : null}
           </div>
         </div>
       </Fragment>

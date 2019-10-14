@@ -3,6 +3,7 @@ import { Route } from "react-router";
 import Header from "./components/Header/";
 import Footer from "./components/Footer/";
 import Menu from "./components/Menu/";
+import routes from "./routes";
 
 /** Pages */
 import Home from "../pages/Home";
@@ -30,6 +31,7 @@ class Layout extends Component {
           toggleMenu={() => this.setState({ menuOpen: !menuOpen })}
         />
         <Menu
+          routes={routes}
           isOpen={menuOpen}
           toggleMenu={() => this.setState({ menuOpen: !menuOpen })}
         />
